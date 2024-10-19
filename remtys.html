@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>REMTYS - Municipio de Ecatepec</title>
+    <title>Registro Municipal de Trámites y Servicios (REMTYS) - Municipio de Ecatepec</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
@@ -29,10 +29,10 @@
             font-size: 18px;
             color: #555;
         }
-        .remtys-section {
+        .tramites-section {
             padding: 40px 0;
         }
-        .remtys-card {
+        .tramite-card {
             background-color: #ffffff;
             border: 1px solid #ddd;
             border-radius: 8px;
@@ -40,11 +40,11 @@
             margin-bottom: 20px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
-        .remtys-card h4 {
+        .tramite-card h4 {
             font-size: 20px;
             margin-bottom: 10px;
         }
-        .remtys-card p {
+        .tramite-card p {
             font-size: 16px;
             color: #666;
         }
@@ -54,27 +54,40 @@
             padding: 20px 0;
             text-align: center;
         }
-                        /* Botones laterales */
-                        .floating-buttons {
-                            position: fixed;
-                            right: 10px;
-                            top: 50%;
-                            transform: translateY(-50%);
-                            z-index: 1000;
-                        }
-                        .floating-buttons a {
-                            display: block;
-                            margin-bottom: 10px;
-                            padding: 10px 20px;
-                            background-color: #6b0000;
-                            color: white;
-                            text-align: center;
-                            border-radius: 5px;
-                            text-decoration: none;
-                        }
-                        .floating-buttons a:hover {
-                            background-color: #860202;
-                        }
+        /* Botones laterales */
+        .floating-buttons {
+            position: fixed;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+        }
+        .floating-buttons a {
+            display: block;
+            margin-bottom: 10px;
+            padding: 10px 20px;
+            background-color: #6b0000;
+            color: white;
+            text-align: center;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .floating-buttons a:hover {
+            background-color: #860202;
+        }
+        .chatbot {
+            position: fixed;
+            right: 10px;
+            bottom: 150px;
+            width: 300px;
+            background-color: white;
+            border: 1px solid #dee2e6;
+            border-radius: 10px;
+            display: none; /* Oculto por defecto */
+            padding: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
     </style>
 </head>
 <body>
@@ -82,8 +95,10 @@
     <div class="floating-buttons">
         <a href="pagop.html">Pago de Predial</a>
         <a href="pagoa.html">Pago de Agua</a>
-        <a href="#">Emergencias</a>
+        <a href="#" id="emergenciesBtn">Emergencias</a>
+        <button class="btn btn-secondary" id="toggleChatbot">Chatbot</button>
     </div>
+
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
@@ -97,7 +112,7 @@
                     <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
                     <li class="nav-item"><a class="nav-link" href="cabildo.html">Directorio</a></li>
                     <li class="nav-item"><a class="nav-link" href="gobierno.html">Gobierno Abierto</a></li>
-                    <li class="nav-item"><a class="nav-link" href="mejora.html">Mejora regular</a></li>
+                    <li class="nav-item"><a class="nav-link" href="mejora.html">Mejora regulatoria</a></li>
                     <li class="nav-item"><a class="nav-link" href="tramites.html">Trámites y Servicios</a></li>
                     <li class="nav-item"><a class="nav-link" href="transparencia.html">Transparencia</a></li>
                     <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
@@ -109,36 +124,38 @@
     <!-- Header Section -->
     <section class="header-section">
         <div class="container">
-            <h1>REMTYS - Registro Municipal de Trámites y Servicios</h1>
-            <p>Encuentra y gestiona todos los trámites y servicios del Municipio de Ecatepec.</p>
+            <h1>Registro Municipal de Trámites y Servicios (REMTYS)</h1>
+            <p>Ventanilla Unica de Servicios Online</p>
         </div>
     </section>
 
-    <!-- Sección de REMTYS -->
-    <section class="remtys-section">
+    <!-- Sección de Trámites y Servicios -->
+    <section class="tramites-section">
         <div class="container">
             <div class="row">
                 <!-- Tarjeta de trámite 1 -->
                 <div class="col-md-4">
-                    <div class="remtys-card text-center">
-                        <h4>Trámite 1: Licencias de Construcción</h4>
-                        <p>Obtén tu licencia de construcción fácilmente.</p>
-                        <a href="#" class="btn btn-secondary">Ver más</a>
+                    <div class="tramite-card text-center">
+                        <h4>Dirección de Bienestar</h4>
+                        <p>Alta y reposición de CURP</p>
+                        <a href="alta.pdf" class="btn btn-secondary">Entra</a>
+                        <p>Corrección y aclaración de CURP</p>
+                        <a href="correcion.pdf" class="btn btn-secondary">Entra</a>
                     </div>
                 </div>
                 <!-- Tarjeta de trámite 2 -->
                 <div class="col-md-4">
-                    <div class="remtys-card text-center">
-                        <h4>Trámite 2: Permisos Comerciales</h4>
-                        <p>Solicita los permisos necesarios para tu negocio.</p>
-                        <a href="#" class="btn btn-secondary">Ver más</a>
+                    <div class="tramite-card text-center">
+                        <h4>Contraloría Municipal</h4>
+                        <p>Presentación de quejas y/o denuncias vía personal, telefónica e Internet</p>
+                        <a href="contra.pdf" class="btn btn-secondary">Entra</a>
                     </div>
                 </div>
                 <!-- Tarjeta de trámite 3 -->
                 <div class="col-md-4">
-                    <div class="remtys-card text-center">
-                        <h4>Trámite 3: Pago de Predial</h4>
-                        <p>Realiza el pago de tu predial de manera segura y rápida.</p>
+                    <div class="tramite-card text-center">
+                        <h4>Página de Interés</h4>
+                        <p>Accede a información relevante sobre trámites importantes.</p>
                         <a href="#" class="btn btn-secondary">Ver más</a>
                     </div>
                 </div>
@@ -147,25 +164,25 @@
             <div class="row">
                 <!-- Tarjeta de trámite 4 -->
                 <div class="col-md-4">
-                    <div class="remtys-card text-center">
-                        <h4>Trámite 4: Registro de Proveedores</h4>
+                    <div class="tramite-card text-center">
+                        <h4>Registro de Proveedores</h4>
                         <p>Consulta los requisitos y trámites para el registro de proveedores.</p>
                         <a href="#" class="btn btn-secondary">Ver más</a>
                     </div>
                 </div>
                 <!-- Tarjeta de trámite 5 -->
                 <div class="col-md-4">
-                    <div class="remtys-card text-center">
-                        <h4>Trámite 5: Licencias de Funcionamiento</h4>
-                        <p>Solicita las licencias necesarias para operar tu negocio.</p>
+                    <div class="tramite-card text-center">
+                        <h4>Licencias y Permisos</h4>
+                        <p>Solicita las licencias y permisos necesarios para tus actividades.</p>
                         <a href="#" class="btn btn-secondary">Ver más</a>
                     </div>
                 </div>
                 <!-- Tarjeta de trámite 6 -->
                 <div class="col-md-4">
-                    <div class="remtys-card text-center">
-                        <h4>Trámite 6: Agua Potable y Drenaje</h4>
-                        <p>Realiza trámites relacionados con agua potable y drenaje.</p>
+                    <div class="tramite-card text-center">
+                        <h4>Consulta de Pagos</h4>
+                        <p>Revisa el estado de tus pagos y servicios municipales.</p>
                         <a href="#" class="btn btn-secondary">Ver más</a>
                     </div>
                 </div>
@@ -178,7 +195,54 @@
         <p>© 2024 Municipio de Ecatepec. Todos los derechos reservados.</p>
     </footer>
 
+    <!-- Chatbot -->
+    <div class="chatbot" id="chatbot">
+        <h5>Chatbot</h5>
+        <div id="chatContent">
+            <p>Hola, ¿requiere algún servicio del ayuntamiento?</p>
+        </div>
+        <input type="text" id="userInput" placeholder="Escribe aquí..." class="form-control mt-2">
+        <button class="btn btn-primary mt-2" id="sendBtn">Enviar</button>
+    </div>
+
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Toggle Chatbot visibility
+        const toggleChatbotButton = document.getElementById('toggleChatbot');
+        const chatbot = document.getElementById('chatbot');
+        
+        toggleChatbotButton.addEventListener('click', function() {
+            if (chatbot.style.display === 'none' || chatbot.style.display === '') {
+                chatbot.style.display = 'block';
+                toggleChatbotButton.textContent = 'Ocultar Chatbot';
+            } else {
+                chatbot.style.display = 'none';
+                toggleChatbotButton.textContent = 'Chatbot';
+            }
+        });
+
+        // Chatbot interaction
+        const sendBtn = document.getElementById('sendBtn');
+        const userInput = document.getElementById('userInput');
+        const chatContent = document.getElementById('chatContent');
+
+        sendBtn.addEventListener('click', function() {
+            const userMessage = userInput.value;
+            if (userMessage) {
+                chatContent.innerHTML += `<p><strong>Tú:</strong> ${userMessage}</p>`;
+                userInput.value = ''; // Clear input field
+                
+                // Simulate a response from the chatbot
+                setTimeout(() => {
+                    let botResponse = "Lo siento, no entiendo tu pregunta.";
+                    if (userMessage.toLowerCase().includes('trámite')) {
+                        botResponse = "Puedes encontrar más información sobre trámites en nuestra sección de 'Trámites y Servicios'.";
+                    }
+                    chatContent.innerHTML += `<p><strong>Bot:</strong> ${botResponse}</p>`;
+                }, 1000);
+            }
+        });
+    </script>
 </body>
 </html>
