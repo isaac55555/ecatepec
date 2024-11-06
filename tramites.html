@@ -95,7 +95,7 @@
     <div class="floating-buttons">
         <a href="pagop.html">Pago de Predial</a>
         <a href="pagoa.html">Pago de Agua</a>
-        <a href="#" id="emergenciesBtn">Emergencias</a>
+        <a href="quejas.html" id="emergenciesBtn">Quejas o Denuncias</a>
         <button class="btn btn-secondary" id="toggleChatbot">Chatbot</button>
     </div>
 
@@ -149,39 +149,11 @@
                         <a href="predial.html" class="btn btn-secondary">Ver más</a>
                     </div>
                 </div>
-                <!-- Tarjeta de trámite 3 -->
                 <div class="col-md-4">
                     <div class="tramite-card text-center">
-                        <h4>Página de Interés</h4>
-                        <p>Accede a información relevante sobre trámites importantes.</p>
-                        <a href="#" class="btn btn-secondary">Ver más</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <!-- Tarjeta de trámite 4 -->
-                <div class="col-md-4">
-                    <div class="tramite-card text-center">
-                        <h4>Registro de Proveedores</h4>
-                        <p>Consulta los requisitos y trámites para el registro de proveedores.</p>
-                        <a href="#" class="btn btn-secondary">Ver más</a>
-                    </div>
-                </div>
-                <!-- Tarjeta de trámite 5 -->
-                <div class="col-md-4">
-                    <div class="tramite-card text-center">
-                        <h4>Licencias y Permisos</h4>
-                        <p>Solicita las licencias y permisos necesarios para tus actividades.</p>
-                        <a href="#" class="btn btn-secondary">Ver más</a>
-                    </div>
-                </div>
-                <!-- Tarjeta de trámite 6 -->
-                <div class="col-md-4">
-                    <div class="tramite-card text-center">
-                        <h4>Consulta de Pagos</h4>
-                        <p>Revisa el estado de tus pagos y servicios municipales.</p>
-                        <a href="#" class="btn btn-secondary">Ver más</a>
+                        <h4>Bolsa de Trabajo</h4>
+                        <p>Busca empleo de forma facil y rapida.</p>
+                        <a href="empleo.html" class="btn btn-secondary">Ver más</a>
                     </div>
                 </div>
             </div>
@@ -190,17 +162,21 @@
 
     <!-- Footer -->
     <footer>
-        <p>© 2024 Municipio de Ecatepec. Todos los derechos reservados.</p>
+        <p>© 2025 Municipio de Ecatepec. Todos los derechos reservados.</p>
     </footer>
-
     <!-- Chatbot -->
     <div class="chatbot" id="chatbot">
-        <h5>Chatbot</h5>
-        <div id="chatContent">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+            <h5>Chatbot</h5>
+            <button id="closeChatbot" class="btn btn-sm btn-danger">Cerrar</button>
+        </div>
+        <div id="chatContent" class="chat-content" style="height: 200px; overflow-y: auto; border: 1px solid #dee2e6; padding: 10px; border-radius: 10px;">
             <p>Hola, ¿requiere algún servicio del ayuntamiento?</p>
         </div>
-        <input type="text" id="userInput" placeholder="Escribe aquí..." class="form-control mt-2">
-        <button class="btn btn-primary mt-2" id="sendBtn">Enviar</button>
+        <div class="chat-input mt-3">
+            <input type="text" id="userInput" placeholder="Escribe aquí..." class="form-control" style="width: 80%; display: inline-block;">
+            <button class="btn btn-primary" id="sendBtn" style="display: inline-block;">Enviar</button>
+        </div>
     </div>
 
     <!-- Bootstrap JS -->
@@ -209,7 +185,7 @@
         // Toggle Chatbot visibility
         const toggleChatbotButton = document.getElementById('toggleChatbot');
         const chatbot = document.getElementById('chatbot');
-        
+    
         toggleChatbotButton.addEventListener('click', function() {
             if (chatbot.style.display === 'none' || chatbot.style.display === '') {
                 chatbot.style.display = 'block';
@@ -219,26 +195,49 @@
                 toggleChatbotButton.textContent = 'Chatbot';
             }
         });
-
+    
         // Chatbot interaction
         const sendBtn = document.getElementById('sendBtn');
         const userInput = document.getElementById('userInput');
         const chatContent = document.getElementById('chatContent');
-
+    
         sendBtn.addEventListener('click', function() {
-            const userMessage = userInput.value;
+            const userMessage = userInput.value.trim();
             if (userMessage) {
                 chatContent.innerHTML += `<p><strong>Tú:</strong> ${userMessage}</p>`;
                 userInput.value = ''; // Clear input field
                 
                 // Simulate a response from the chatbot
                 setTimeout(() => {
-                    let botResponse = "Lo siento, no entiendo tu pregunta.";
+                    let botResponse = "Lo siento, no entiendo tu pregunta. Puedes intentar preguntar de otra forma.";
+                    
+                    // Simple responses based on user input
                     if (userMessage.toLowerCase().includes('trámite')) {
                         botResponse = "Puedes encontrar más información sobre trámites en nuestra sección de 'Trámites y Servicios'.";
+                    } else if (userMessage.toLowerCase().includes('agua')) {
+                        botResponse = "Para pagar tu servicio de agua, puedes visitar nuestra sección 'Pago de Agua'.";
+                    } else if (userMessage.toLowerCase().includes('predial')) {
+                        botResponse = "Para realizar el pago de Predial, visita nuestra sección 'Pago de Predial'.";
+                    } else if (userMessage.toLowerCase().includes('contacto')) {
+                        botResponse = "Puedes encontrar la información de contacto en la sección 'Contacto'.";
+                    } else if (userMessage.toLowerCase().includes('gobierno abierto')) {
+                        botResponse = "La información de 'Gobierno Abierto' está disponible en la sección correspondiente de nuestra página.";
+                    } else if (userMessage.toLowerCase().includes('transparencia')) {
+                        botResponse = "La sección de 'Transparencia' proporciona acceso a la información pública y rendición de cuentas.";
+                    } else if (userMessage.toLowerCase().includes('hola')) {
+                        botResponse = "Hola, indicame la seccion que deseas informacion colocando la palabra ejemplo: agua.";
                     }
+    
                     chatContent.innerHTML += `<p><strong>Bot:</strong> ${botResponse}</p>`;
-                }, 1000);
+                    chatContent.scrollTop = chatContent.scrollHeight; // Scroll to the latest message
+                }, 500);
+            }
+        });
+    
+        // Allow pressing "Enter" to send a message
+        userInput.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                sendBtn.click();
             }
         });
     </script>
