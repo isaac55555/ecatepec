@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sistema de Gestión de Trámites y Servicios en Línea</title>
+    <title>Licencias de Desarrollo - Municipio de Ecatepec</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
@@ -43,6 +43,29 @@
             padding: 80px 0;
             text-align: center;
         }
+        .procedure-box {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .procedure-box h5 {
+            color: #500000;
+        }
+        .btn-procedure {
+            background-color: #500000;
+            color: white;
+            text-decoration: none;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+        .btn-procedure:hover {
+            background-color: #860202;
+        }
     </style>
 </head>
 <body>
@@ -76,30 +99,39 @@
     </nav>
 
     <!-- Content Section -->
-    <section class="content-section">
-        <div class="container">
-            <h2 class="title">Sistema de Gestión de Trámites y Servicios en Línea</h2>
-            <p>Ingresa con:</p>
-            <form action="servicioventanillla.html" method="POST">
-                <div class="form-group">
-                    <label for="cuts" class="form-label">CURP</label>
-                    <input type="text" id="cuts" class="form-control" placeholder="Ingresa tu CURP" required>
+    <div class="container mt-5">
+        <h2 class="text-center">Procedimientos de Licencias de Desarrollo</h2>
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <div class="procedure-box">
+                    <h5>Expedición de licencia de funcionamiento de bajo impacto</h5>
+                    <p>Solicita una licencia para negocios de bajo impacto en el municipio.</p>
+                    <a href="expedicion_bajo_impacto.html" class="btn-procedure">Ver Procedimiento</a>
                 </div>
-                <div class="form-group">
-                    <label for="password" class="form-label">Contraseña</label>
-                    <input type="password" id="password" class="form-control" placeholder="Ingresa tu contraseña" required>
+            </div>
+            <div class="col-md-6">
+                <div class="procedure-box">
+                    <h5>Baja de licencia de funcionamiento</h5>
+                    <p>Realiza el trámite para dar de baja tu licencia de funcionamiento.</p>
+                    <a href="baja_licencia.html" class="btn-procedure">Ver Procedimiento</a>
                 </div>
-                <div class="d-grid gap-2">
-                    <button type="submit" class="btn btn-secondary">Ingresar</button>
+            </div>
+            <div class="col-md-6">
+                <div class="procedure-box">
+                    <h5>Expedición de licencia de funcionamiento de alto y mediano impacto</h5>
+                    <p>Gestiona tu licencia para negocios de mayor impacto en la región.</p>
+                    <a href="expedicion_alto_mediano.html" class="btn-procedure">Ver Procedimiento</a>
                 </div>
-            </form>
-            <div class="mt-3">
-                <a href="#" class="btn-link-custom">&#191;Olvidaste tu contraseña?</a><br>
-                <a href="#" class="btn-link-custom">&#191;No tienes tu CURP? Obtenla AQUÍ</a><br>
-                <a href="#" class="btn-link-custom">&#191;Deseas modificar tu correo electrónico?</a>
+            </div>
+            <div class="col-md-6">
+                <div class="procedure-box">
+                    <h5>Plataforma municipal de empleo</h5>
+                    <p>Consulta y utiliza la plataforma de empleo para ciudadanos y empresas locales.</p>
+                    <a href="empleo.html" class="btn-procedure">Ir a la Plataforma</a>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
 
     <!-- Footer -->
     <footer>
@@ -108,6 +140,5 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="procesar.php"></script>
 </body>
 </html>
