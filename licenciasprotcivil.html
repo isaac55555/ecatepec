@@ -4,10 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Licencias de Desarrollo - Municipio de Ecatepec</title>
+    <title>Licencias y Permisos de Proteccion Civil</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="logo.ico">
     <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
         body {
             font-family: Arial, sans-serif;
             background-color: #f8f9fa;
@@ -18,31 +24,12 @@
         .navbar-nav .nav-link {
             color: white !important;
         }
-        .floating-buttons {
-            position: fixed;
-            right: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 1000;
-        }
-        .floating-buttons a {
-            display: block;
-            margin-bottom: 10px;
-            padding: 10px 20px;
-            background-color: #6b0000;
-            color: white;
-            text-align: center;
-            border-radius: 5px;
-            text-decoration: none;
-        }
-        .floating-buttons a:hover {
-            background-color: #860202;
-        }
         footer {
             background-color: #500000;
             color: white;
-            padding: 80px 0;
+            padding: 20px 0;
             text-align: center;
+            margin-top: auto;
         }
         .procedure-box {
             background-color: #ffffff;
@@ -70,13 +57,6 @@
     </style>
 </head>
 <body>
-    <!-- Botones laterales de pago -->
-    <div class="floating-buttons">
-        <a href="pagop.html">Pago de Predial</a>
-        <a href="pagoa.html">Pago de Agua</a>
-        <a href="quejas.html">Quejas o Denuncias</a>
-    </div>
-
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
@@ -87,7 +67,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="llave.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
                     <li class="nav-item"><a class="nav-link" href="cabildo.html">Directorio</a></li>
                     <li class="nav-item"><a class="nav-link" href="gobierno.html">Gobierno Abierto</a></li>
                     <li class="nav-item"><a class="nav-link" href="mejora.html">Mejora regulatoria</a></li>
@@ -101,30 +81,74 @@
 
     <!-- Content Section -->
     <div class="container mt-5">
-        <h2 class="text-center">Procedimientos de Licencias de Desarrollo</h2>
+        <h2 class="text-center">Procedimientos de Licencias de Protección Civil</h2>
         <div class="row mt-4">
             <div class="col-md-6">
                 <div class="procedure-box">
-                    <h5>Expedición de licencia de funcionamiento de bajo impacto</h5>
-                    <p>Solicita una licencia para negocios de bajo impacto en el municipio.</p>
+                    <h5>Comités de protección civil (vecinales, escolares)</h5>
+                    <p>Comités de PC en el municipio.</p>
                     <a href="expedicion_bajo_impacto.html" class="btn-procedure">Ver Procedimiento</a>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="procedure-box">
-                    <h5>Baja de licencia de funcionamiento</h5>
-                    <p>Realiza el trámite para dar de baja tu licencia de funcionamiento.</p>
+                    <h5>Evaluación de simulacro</h5>
+                    <p>Evaluación.</p>
                     <a href="baja_licencia.html" class="btn-procedure">Ver Procedimiento</a>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="procedure-box">
-                    <h5>Expedición de licencia de funcionamiento de alto y mediano impacto</h5>
-                    <p>Gestiona tu licencia para negocios de mayor impacto en la región.</p>
+                    <h5>Capacitación en materia de protección civil (introducción a la protección civil, primeros auxilios, prevención y combate de incendios, talleres varios)</h5>
+                    <p>Capacitación.</p>
+                    <a href="expedicion_alto_mediano.html" class="btn-procedure">Ver Procedimiento</a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="procedure-box">
+                    <h5>Emisión de valoración de riesgo</h5>
+                    <p>Gestiona tu valoración.</p>
+                    <a href="expedicion_alto_mediano.html" class="btn-procedure">Ver Procedimiento</a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="procedure-box">
+                    <h5>Atención de emergencias pre hospitalario COE</h5>
+                    <p>Atención a emergencias.</p>
+                    <a href="expedicion_alto_mediano.html" class="btn-procedure">Ver Procedimiento</a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="procedure-box">
+                    <h5>Atención de emergencias bomberos COE</h5>
+                    <p>Atención a emergencias.</p>
+                    <a href="expedicion_alto_mediano.html" class="btn-procedure">Ver Procedimiento</a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="procedure-box">
+                    <h5>Rescate urbano COE (Centro de Operación de Emergencias)</h5>
+                    <p>Rescate urbano.</p>
+                    <a href="expedicion_alto_mediano.html" class="btn-procedure">Ver Procedimiento</a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="procedure-box">
+                    <h5>Dictamen de protección civil alto-mediano riesgo</h5>
+                    <p>Gestiona tu licencia.</p>
+                    <a href="expedicion_alto_mediano.html" class="btn-procedure">Ver Procedimiento</a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="procedure-box">
+                    <h5>Dictamen de protección civil bajo riesgo</h5>
+                    <p>Gestiona tu licencia.</p>
                     <a href="expedicion_alto_mediano.html" class="btn-procedure">Ver Procedimiento</a>
                 </div>
             </div>
         </div>
+    </div>
+
     </div>
 
     <!-- Footer -->

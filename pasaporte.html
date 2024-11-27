@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Municipio de Ecatepec</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="logo.ico">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .navbar {
+            background-color: #500000;
+        }
+        .navbar-nav .nav-link {
+            color: white !important;
+        }
+        .header-section {
+            background-color: #f0f0f0;
+            padding: 40px 0;
+            text-align: center;
+        }
+        .header-section h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        .header-section p {
+            font-size: 18px;
+            color: #555;
+        }
+        .info-section {
+            background-color: #ffffff;
+            padding: 40px 0;
+        }
+        .info-section h2 {
+            font-size: 28px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .info-block {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .info-block h4 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .info-block p {
+            font-size: 16px;
+            color: #666;
+        }
+        footer {
+            background-color: #500000;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        /* Botones laterales */
+        .floating-buttons {
+            position: fixed;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+        }
+        .floating-buttons a {
+            display: block;
+            margin-bottom: 10px;
+            padding: 10px 20px;
+            background-color: #6b0000;
+            color: white;
+            text-align: center;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .floating-buttons a:hover {
+            background-color: #860202;
+        }
+        table {
+            width: 80%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            background: #fff;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #500000;
+            color: white;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .info {
+            max-width: 800px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .notes {
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+        .dropdown {
+            margin: 20px 0;
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown button {
+            background-color: #500000;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .dropdown button:hover {
+            background-color: #555151;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 200px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .upload-section {
+            display: none;
+            margin-top: 20px;
+        }
+        .upload-group {
+            margin: 10px 0;
+        }
+        .upload-group input[type="file"] {
+            margin: 5px;
+        }
+        .submit-button {
+            margin-top: 20px;
+        }
+        .submit-button button {
+            background-color: #500000;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .submit-button button:hover {
+            background-color: #525457;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Botones laterales de pago -->
+    <div class="floating-buttons">
+        <a href="pagop.html">Pago de Predial</a>
+        <a href="pagoa.html">Pago de Agua</a>
+        <a href="quejas.html">Quejas o Denuncias</a>
+    </div>
+
+    <!-- Barra de Navegación -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <img src="logo.png" alt="Logo" width="90" height="90" class="d-inline-block align-text-top">
+            <a class="navbar-brand" href="#">Municipio de Ecatepec</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cabildo.html">Directorio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gobierno.html">Gobierno Abierto</a></li>
+                    <li class="nav-item"><a class="nav-link" href="mejora.html">Mejora regulatoria</a></li>
+                    <li class="nav-item"><a class="nav-link" href="tramites.html">Trámites y Servicios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="transparencia.html">Transparencia</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sección de encabezado (header) -->
+    <section class="header-section">
+        <div class="container">
+            <h1>Oficina Municipal de Enlace</h1>
+            <h2>¿QUE ES UNA OFICINA DE ENLACE?</h2>
+            <p>Las oficinas de enlace son centros establecidos para acercar a los estados y municipios de la república los diferentes tramites y servicios que ofrece la secretaria. Son oficinas receptoras de documentación, para su posterior desahogo en la delegación de adscripción.</p>
+        </div>
+    </section>
+    <h1>Subir Archivos</h1>
+    <div class="dropdown">
+        <button>Seleccionar Opción</button>
+        <div class="dropdown-content">
+            <a href="#" onclick="showUploadSection('option1')">PRIMERA VEZ MAYOR DE EDAD</a>
+            <a href="#" onclick="showUploadSection('option2')">RENOVACION MAYOR DE EDAD</a>
+            <a href="#" onclick="showUploadSection('option3')">PRIMERA VEZ MENOR DE EDAD</a>
+            <a href="#" onclick="showUploadSection('option4')">RENOVACION MENOR DE EDAD</a>
+        </div>
+    </div>
+    
+    <!-- Opciones de subida de archivos -->
+    <div id="option1" class="upload-section">
+        <h2>Agendar cita al call center al numero telefónico 800-80-10-773</h2>
+        <div class="upload-group">
+            <input type="file" name="file1"> Acta de Nacimiento no mayor a 3 meses 
+        </div>
+        <div class="upload-group">
+            <input type="file" name="file2"> Credencial para votar, cartilla o cédula
+        </div>
+        <div class="upload-group">
+            <input type="file" name="file3"> Pago Federal 
+        </div>
+    </div>
+    <div id="option2" class="upload-section">
+        <h2>Agendar cita al call center al numero telefónico 800-80-10-773</h2>
+        <!-- Contenido igual para las otras opciones -->
+        <div class="upload-group">
+            <input type="file" name="file1"> Pasaporte a renovar 
+        </div>
+        <div class="upload-group">
+            <input type="file" name="file2"> Pago Federal 
+        </div>
+    </div>
+    <!-- Repite para opción 3 y 4 -->
+    <div id="option3" class="upload-section">
+        <h2>Agendar cita al call center al numero telefónico 800-80-10-773</h2>
+        <!-- Contenido -->
+        <div class="upload-group">
+            <input type="file" name="file1"> Acta de Nacimiento no mayor a 3 meses 
+        </div>
+        <div class="upload-group">
+            <input type="file" name="file2"> Credencial para votar, cartilla o cédula
+        </div>
+        <div class="upload-group">
+            <input type="file" name="file3"> Identificación del Menor, constancia pediatrica menor a 7 años 
+        </div>
+        <div class="upload-group">
+            <input type="file" name="file4"> Pago Federal  
+        </div>
+    </div>
+    <div id="option4" class="upload-section">
+        <h2>Agendar cita al call center al numero telefónico 800-80-10-773</h2>
+        <!-- Contenido -->
+        <div class="upload-group">
+            <input type="file" name="file1"> Pasaporte a renovar 
+        </div>
+        <div class="upload-group">
+            <input type="file" name="file2"> Acta de Nacimiento no mayor a 3 meses 
+        </div>
+        <div class="upload-group">
+            <input type="file" name="file3"> Credencial para votar, cartilla o cédula 
+        </div>
+        <div class="upload-group">
+            <input type="file" name="file3"> Identificación del Menor, constancia pediatrica menor a 7 años 
+        </div>
+        <div class="upload-group">
+            <input type="file" name="file4"> Pago Federal 
+        </div>
+    </div>
+
+    <div class="submit-button">
+        <button onclick="submitData()">Subir Información</button>
+    </div>
+
+    <h1>COSTOS DE LOS PASAPORTES</h1>
+    <p class="info">
+        Este pago se realiza con la ficha de pago federal que se encuentra en la página de internet 
+        <a href="https://www.sre.gob.mx/pasaportes" target="_blank">www.sre.gob.mx/pasaportes</a>
+    </p>
+    <table>
+        <thead>
+            <tr>
+                <th>VIGENCIA</th>
+                <th>PAGO COMPLETO</th>
+                <th>BENEFICIO DEL 50% DE DESCUENTO</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1 AÑO</td>
+                <td>$645</td>
+                <td>$325.00</td>
+            </tr>
+            <tr>
+                <td>3 AÑOS</td>
+                <td>$1,345.00</td>
+                <td>$670.00</td>
+            </tr>
+            <tr>
+                <td>6 AÑOS</td>
+                <td>$1,845.00</td>
+                <td>$925.00</td>
+            </tr>
+            <tr>
+                <td>10 AÑOS</td>
+                <td>$2,840.00</td>
+                <td>$1,420.00</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="notes">
+        <p>*** El pasaporte con vigencia de un año solo se expide a menores de 3 años</p>
+        <p>*** Para las personas mayores de 60 años de edad, personas con discapacidad y trabajadores agrícolas tendrán el beneficio del 50% de descuento</p>
+        <p>*** No aplica para trabajadores agrícolas pagar por diez años</p>
+        <p>Por ser oficina de enlace se realiza un costo adicional de $200.00 por trámite y el pasaporte se entrega en tres días hábiles</p>
+    </div>
+    <div class="notes">
+        <p><strong>OFICINA MUNICIPAL DE ENLACE CON LA S.R.E.</strong></p>
+        <p>Titular de la oficina:</p>
+        <p>Dirección de la oficina de enlace con la Secretaría de Relaciones Exteriores en Ecatepec.</p>
+        <p>Juárez Sur 33, Col. La Mora, San Cristóbal Centro, Ecatepec de Morelos.</p>
+        <p>TEL. 15-41-16-07 Y 91-31-79-45</p>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Municipio de Ecatepec. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- JavaScript de Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function showUploadSection(optionId) {
+            // Oculta todas las secciones de subida
+            const sections = document.querySelectorAll('.upload-section');
+            sections.forEach(section => section.style.display = 'none');
+            
+            // Muestra la sección seleccionada
+            document.getElementById(optionId).style.display = 'block';
+        }
+
+        function submitData() {
+            alert("Información enviada correctamente.");
+        }
+    </script>
+</body>
+</html>

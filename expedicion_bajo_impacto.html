@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Expedición de Licencia de Bajo Impacto</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="logo.ico">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -16,6 +17,20 @@
         }
         .navbar-nav .nav-link {
             color: white !important;
+        }
+        .section-title {
+            color: #500000;
+            margin-top: 20px;
+        }
+        .hidden {
+            display: none;
+        }
+        .btn-submit {
+            background-color: #500000;
+            color: white;
+        }
+        .btn-submit:hover {
+            background-color: #860202;
         }
         .floating-buttons {
             position: fixed;
@@ -37,28 +52,15 @@
         .floating-buttons a:hover {
             background-color: #860202;
         }
+        .container {
+             flex: 1; /* Empuja el footer hacia el fondo */
+        }
         footer {
             background-color: #500000;
             color: white;
-            padding: 80px 0;
+            padding: 20px 0;
             text-align: center;
-        }
-        .content-section {
-            margin-top: 20px;
-        }
-        .section-title {
-            margin-bottom: 20px;
-            color: #500000;
-        }
-        .file-upload {
-            margin-bottom: 15px;
-        }
-        .btn-submit {
-            background-color: #500000;
-            color: white;
-        }
-        .btn-submit:hover {
-            background-color: #860202;
+            margin-top: auto;
         }
     </style>
 </head>
@@ -69,7 +71,6 @@
         <a href="pagoa.html">Pago de Agua</a>
         <a href="quejas.html">Quejas o Denuncias</a>
     </div>
-
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
@@ -93,90 +94,103 @@
     </nav>
 
     <!-- Content Section -->
-    <div class="container content-section">
-        <h2 class="text-center section-title">Expedición de Licencia de Funcionamiento de Bajo Impacto</h2>
+    <div class="container mt-4">
+        <h2 class="text-center section-title">Expedición de Licencia de Bajo Impacto</h2>
         <p><strong>Fundamento Legal:</strong> Artículo 47 fracción XII de la Ley de Competitividad y Ordenamiento Comercial para el Estado de México.</p>
         <p><strong>Duración del trámite:</strong> 5 minutos</p>
         <p><strong>Tiempo de respuesta:</strong> 10 días hábiles</p>
         <hr>
 
-        <!-- Persona Física -->
-        <h3 class="section-title">Persona Física</h3>
-        <form action="#" method="POST" enctype="multipart/form-data">
-            <div class="file-upload">
-                <label for="fisica-fua" class="form-label">Formato FUA:</label>
-                <input type="file" class="form-control" id="fisica-fua" name="fisica-fua" accept=".pdf,.png" required>
-            </div>
-            <div class="file-upload">
-                <label for="fisica-pago" class="form-label">Formato de Pago:</label>
-                <input type="file" class="form-control" id="fisica-pago" name="fisica-pago" accept=".pdf,.png" required>
-            </div>
-            <div class="file-upload">
-                <label for="fisica-proteccion" class="form-label">Dictamen de Protección Civil de Bajo Impacto:</label>
-                <input type="file" class="form-control" id="fisica-proteccion" name="fisica-proteccion" accept=".pdf,.png" required>
-            </div>
-            <div class="file-upload">
-                <label for="fisica-ambiental" class="form-label">Constancia de No Inconveniencia Ambiental (si lo requiere):</label>
-                <input type="file" class="form-control" id="fisica-ambiental" name="fisica-ambiental" accept=".pdf,.png">
-            </div>
-            <div class="file-upload">
-                <label for="fisica-sanitaria" class="form-label">Aviso de Funcionamiento de Responsable Sanitario (si lo requiere):</label>
-                <input type="file" class="form-control" id="fisica-sanitaria" name="fisica-sanitaria" accept=".pdf,.png">
-            </div>
-            <div class="file-upload">
-                <label for="fisica-cedula" class="form-label">Cédula Informativa de Zonificación (menor a 20m) o Licencia de Uso de Suelo (mayor a 20m):</label>
-                <input type="file" class="form-control" id="fisica-cedula" name="fisica-cedula" accept=".pdf,.png" required>
-            </div>
-            <div class="file-upload">
-                <label for="fisica-licencia" class="form-label">Licencia Anterior:</label>
-                <input type="file" class="form-control" id="fisica-licencia" name="fisica-licencia" accept=".pdf,.png" required>
-            </div>
-            <button type="submit" class="btn btn-submit">Enviar</button>
-        </form>
+        <!-- Selección de Tipo de Persona -->
+        <div class="mb-3">
+            <label for="personaTipo" class="form-label">Selecciona el tipo de persona:</label>
+            <select id="personaTipo" class="form-select" onchange="mostrarFormulario()">
+                <option value="">-- Seleccionar --</option>
+                <option value="fisica">Persona Física</option>
+                <option value="juridica">Persona Jurídico Colectiva</option>
+            </select>
+        </div>
 
-        <hr>
+        <!-- Formulario para Persona Física -->
+        <div id="formFisica" class="hidden">
+            <h3 class="section-title">Persona Física</h3>
+ <!-- Persona Física -->
+ <form action="#" method="POST" enctype="multipart/form-data">
+     <div class="file-upload">
+         <label for="fisica-fua" class="form-label">Formato FUA:</label>
+         <input type="file" class="form-control" id="fisica-fua" name="fisica-fua" accept=".pdf,.png" required>
+     </div>
+     <div class="file-upload">
+         <label for="fisica-pago" class="form-label">Formato de Pago:</label>
+         <input type="file" class="form-control" id="fisica-pago" name="fisica-pago" accept=".pdf,.png" required>
+     </div>
+     <div class="file-upload">
+         <label for="fisica-proteccion" class="form-label">Dictamen de Protección Civil de Bajo Impacto:</label>
+         <input type="file" class="form-control" id="fisica-proteccion" name="fisica-proteccion" accept=".pdf,.png" required>
+     </div>
+     <div class="file-upload">
+         <label for="fisica-ambiental" class="form-label">Constancia de No Inconveniencia Ambiental (si lo requiere):</label>
+         <input type="file" class="form-control" id="fisica-ambiental" name="fisica-ambiental" accept=".pdf,.png">
+     </div>
+     <div class="file-upload">
+         <label for="fisica-sanitaria" class="form-label">Aviso de Funcionamiento de Responsable Sanitario (si lo requiere)(solo apertura):</label>
+         <input type="file" class="form-control" id="fisica-sanitaria" name="fisica-sanitaria" accept=".pdf,.png">
+     </div>
+     <div class="file-upload">
+         <label for="fisica-cedula" class="form-label">Cédula Informativa de Zonificación (menor a 20m) o Licencia de Uso de Suelo (mayor a 20m):</label>
+         <input type="file" class="form-control" id="fisica-cedula" name="fisica-cedula" accept=".pdf,.png" required>
+     </div>
+     <div class="file-upload">
+         <label for="fisica-licencia" class="form-label">Licencia Anterior(REFRENDO):</label>
+         <input type="file" class="form-control" id="fisica-licencia" name="fisica-licencia" accept=".pdf,.png" required>
+     </div>
+     <button type="submit" class="btn btn-submit">Enviar</button>
+ </form>
+        </div>
 
-        <!-- Persona Jurídico Colectiva -->
-        <h3 class="section-title">Persona Jurídico Colectiva</h3>
-        <form action="#" method="POST" enctype="multipart/form-data">
-            <div class="file-upload">
-                <label for="juridico-fua" class="form-label">Formato FUA:</label>
-                <input type="file" class="form-control" id="juridico-fua" name="juridico-fua" accept=".pdf,.png" required>
-            </div>
-            <div class="file-upload">
-                <label for="juridico-pago" class="form-label">Formato de Pago:</label>
-                <input type="file" class="form-control" id="juridico-pago" name="juridico-pago" accept=".pdf,.png" required>
-            </div>
-            <div class="file-upload">
-                <label for="juridico-proteccion" class="form-label">Dictamen de Protección Civil de Bajo Impacto:</label>
-                <input type="file" class="form-control" id="juridico-proteccion" name="juridico-proteccion" accept=".pdf,.png" required>
-            </div>
-            <div class="file-upload">
-                <label for="juridico-ambiental" class="form-label">Constancia de No Inconveniencia Ambiental (si lo requiere):</label>
-                <input type="file" class="form-control" id="juridico-ambiental" name="juridico-ambiental" accept=".pdf,.png">
-            </div>
-            <div class="file-upload">
-                <label for="juridico-sanitaria" class="form-label">Aviso de Funcionamiento de Responsable Sanitario (si lo requiere):</label>
-                <input type="file" class="form-control" id="juridico-sanitaria" name="juridico-sanitaria" accept=".pdf,.png">
-            </div>
-            <div class="file-upload">
-                <label for="juridico-cedula" class="form-label">Cédula Informativa de Zonificación (menor a 20m) o Licencia de Uso de Suelo (mayor a 20m):</label>
-                <input type="file" class="form-control" id="juridico-cedula" name="juridico-cedula" accept=".pdf,.png" required>
-            </div>
-            <div class="file-upload">
-                <label for="juridico-licencia" class="form-label">Licencia Anterior:</label>
-                <input type="file" class="form-control" id="juridico-licencia" name="juridico-licencia" accept=".pdf,.png" required>
-            </div>
-            <div class="file-upload">
-                <label for="juridico-acta" class="form-label">Acta Constitutiva:</label>
-                <input type="file" class="form-control" id="juridico-acta" name="juridico-acta" accept=".pdf,.png" required>
-            </div>
-            <div class="file-upload">
-                <label for="juridico-poder" class="form-label">Poder Notarial:</label>
-                <input type="file" class="form-control" id="juridico-poder" name="juridico-poder" accept=".pdf,.png" required>
-            </div>
-            <button type="submit" class="btn btn-submit">Enviar</button>
-        </form>
+        <!-- Formulario para Persona Jurídico Colectiva -->
+        <div id="formJuridica" class="hidden">
+            <h3 class="section-title">Persona Jurídico Colectiva</h3>
+            <form action="#" method="POST" enctype="multipart/form-data">
+                <div class="file-upload">
+                    <label for="juridico-fua" class="form-label">Formato FUA:</label>
+                    <input type="file" class="form-control" id="juridico-fua" name="juridico-fua" accept=".pdf,.png" required>
+                </div>
+                <div class="file-upload">
+                    <label for="juridico-pago" class="form-label">Formato de Pago:</label>
+                    <input type="file" class="form-control" id="juridico-pago" name="juridico-pago" accept=".pdf,.png" required>
+                </div>
+                <div class="file-upload">
+                    <label for="juridico-proteccion" class="form-label">Dictamen de Protección Civil de Bajo Impacto:</label>
+                    <input type="file" class="form-control" id="juridico-proteccion" name="juridico-proteccion" accept=".pdf,.png" required>
+                </div>
+                <div class="file-upload">
+                    <label for="juridico-ambiental" class="form-label">Constancia de No Inconveniencia Ambiental (si lo requiere):</label>
+                    <input type="file" class="form-control" id="juridico-ambiental" name="juridico-ambiental" accept=".pdf,.png">
+                </div>
+                <div class="file-upload">
+                    <label for="juridico-sanitaria" class="form-label">Aviso de Funcionamiento de Responsable Sanitario (si lo requiere)(solo apertura):</label>
+                    <input type="file" class="form-control" id="juridico-sanitaria" name="juridico-sanitaria" accept=".pdf,.png">
+                </div>
+                <div class="file-upload">
+                    <label for="juridico-cedula" class="form-label">Cédula Informativa de Zonificación (menor a 20m) o Licencia de Uso de Suelo (mayor a 20m):</label>
+                    <input type="file" class="form-control" id="juridico-cedula" name="juridico-cedula" accept=".pdf,.png" required>
+                </div>
+                <div class="file-upload">
+                    <label for="juridico-licencia" class="form-label">Licencia Anterior(REFRENDO):</label>
+                    <input type="file" class="form-control" id="juridico-licencia" name="juridico-licencia" accept=".pdf,.png" required>
+                </div>
+                <div class="file-upload">
+                    <label for="juridico-acta" class="form-label">Acta Constitutiva:</label>
+                    <input type="file" class="form-control" id="juridico-acta" name="juridico-acta" accept=".pdf,.png" required>
+                </div>
+                <div class="file-upload">
+                    <label for="juridico-poder" class="form-label">Poder Notarial:</label>
+                    <input type="file" class="form-control" id="juridico-poder" name="juridico-poder" accept=".pdf,.png" required>
+                </div>
+                <button type="submit" class="btn btn-submit">Enviar</button>
+            </form>
+        </div>
     </div>
 
     <!-- Footer -->
@@ -186,5 +200,26 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Script para mostrar formularios -->
+    <script>
+        function mostrarFormulario() {
+            const tipoPersona = document.getElementById("personaTipo").value;
+            const formFisica = document.getElementById("formFisica");
+            const formJuridica = document.getElementById("formJuridica");
+
+            // Ocultar ambos formularios inicialmente
+            formFisica.classList.add("hidden");
+            formJuridica.classList.add("hidden");
+
+            // Mostrar el formulario según la selección
+            if (tipoPersona === "fisica") {
+                formFisica.classList.remove("hidden");
+            } else if (tipoPersona === "juridica") {
+                formJuridica.classList.remove("hidden");
+            }
+        }
+    </script>
 </body>
 </html>
+
